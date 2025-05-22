@@ -20,13 +20,17 @@ type WebService struct {
 }
 
 func NewWebService() *WebService {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		AppName:           "Blog",
+		EnablePrintRoutes: true,
+		ETag:              true,
+	})
 	return &WebService{app: app}
 }
 
 func (ws *WebService) Start() error {
 	// Start the Fiber app
-	return ws.app.Listen(":3000")
+	return ws.app.Listen(":8080")
 }
 
 func (ws *WebService) Stop() error {

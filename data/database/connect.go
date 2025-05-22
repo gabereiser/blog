@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 
 	"github.com/gabereiser/blog/config"
@@ -29,9 +30,9 @@ func Connect() {
 		panic("failed to connect database")
 	}
 
-	fmt.Println("Connection Opened to Database")
+	log.Println("Connection Opened to Database")
 	Migrate()
-	fmt.Println("Database Migrated")
+	log.Println("Database Migrated")
 }
 
 func ConnectTest() {
@@ -43,7 +44,7 @@ func ConnectTest() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	fmt.Println("Connection Opened to Database")
+	log.Println("Connection Opened to Database")
 	Migrate()
-	fmt.Println("Database Migrated")
+	log.Println("Database Migrated")
 }
