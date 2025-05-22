@@ -2,8 +2,8 @@
 .vscode
 .vs
 
-[Bb]uild
-[Oo]ut
+[Bb]in
+
 
 *.exe
 *.a
@@ -17,3 +17,5 @@
 *.gz
 *.z
 *.xz
+
+coverage.out
