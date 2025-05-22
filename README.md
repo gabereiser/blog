@@ -4,7 +4,12 @@
 To demonstrate a typical rest service using golang, fiber, gorm, postgres/sqlite, with tests, auth, jwt, and basic relational modeling all wrapped
 inside a well architected codebase.
 
+### TL;DR ###
+Run `make` to build everything and then run `make docker-up` to docker compose the app and *postgresql*. If you want to run it without docker, you can
+run `make run` - see `.env` for environment variables. `make test` will run through all the unit tests and write a coverage report.
+
 ### Architecture ###
+GoFiber was used to quickly create an "express.js" like application with JWT middleware for authentication with a database. `Gorm` was used as an ORM for SQLite/PostgreSQL to abstract away the database layer. Basic operations are done in the service with the controllers handling validation and input/reponse.
 
 Before we start our service, we prep the data store for use. `Init` is called on the `database` package. This will initialize `gorm` based on `.env` file and environment variables (see `config` package) and call `Migrate` which will auto migrate the models of this service.
 
