@@ -8,7 +8,7 @@ GIT_COMMIT := $(shell git rev-parse --short HEAD)
 all: clean build test
 
 build:
-	go build -o ./bin/$(APP_NAME) cmd/main.go
+	CGO_ENABLED=1 go build -o ./bin/$(APP_NAME) cmd/main.go
 
 run: build
 	./bin/$(APP_NAME)
@@ -22,10 +22,10 @@ clean:
 	go mod tidy
 
 docker-up:
-	cd ./ops && docker-compose up -d
+	cd ./.ops && docker compose up
 
 docker-down:
-	cd ./ops && docker-compose down
+	cd ./.ops && docker compose down
 
 docker:
 	docker build -t $(APP_NAME):latest .

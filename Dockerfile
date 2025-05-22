@@ -1,18 +1,20 @@
 FROM golang:alpine AS builder
 
+RUN apk add --no-cache make gcc libc-dev
+
 RUN mkdir /opt/blog
 
-WORKDIR /opt/blog
+WORKDIR /opt/blog/
 
-COPY . /opt/blog/
+COPY ../. /opt/blog/
 
-RUN make
+RUN make all
 
 FROM golang:alpine
 
-RUN mkdir /opt
 WORKDIR /opt
 COPY --from=builder /opt/blog/bin/blog /opt/blog
+COPY --from=builder /opt/blog/.env /opt/.env
 
 EXPOSE 8080
 CMD ["/opt/blog"]
