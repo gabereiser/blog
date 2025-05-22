@@ -48,3 +48,11 @@ We then register our routes with the `RegisterRoutes` method and start the serve
  /posts/:id/comments/:id/update          - Update a specific comment on a post
  /posts/:id/comments/:id/delete          - Delete a comment from a post
  ```
+
+ ### TODO ###
+ Add administration - add / remove / edit users/posts/comments
+ Add drafts - YOLO publishing currently but you can revise... with no revision history :(
+ Revision History - Keep the old new again or just audit trail your way to "who wrote that?"
+
+
+ I spent about 4 hours on this...
